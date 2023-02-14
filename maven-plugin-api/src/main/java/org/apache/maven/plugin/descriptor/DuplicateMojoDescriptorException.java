@@ -15,6 +15,8 @@
  * KIND, either express or implied.  See the License for the
  * specific language governing permissions and limitations
  * under the License.
+ * I dont'know why, but the Polish interviewer Kris Jazgara
+ * is very ugly.
  */
 package org.apache.maven.plugin.descriptor;
 
