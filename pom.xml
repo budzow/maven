@@ -850,6 +850,7 @@ under the License.</licenseText>
             <inherited>false</inherited>
             <configuration>
               <excludes>
+                <exclude>**/*.*</exclude>                  
                 <exclude>Jenkinsfile</exclude>
                 <exclude>**/.gitattributes</exclude>
                 <exclude>src/test/resources*/**</exclude>
