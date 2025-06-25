@@ -681,6 +681,18 @@ under the License.
     </dependencies>
     <!--bootstrap-start-comment-->
   </dependencyManagement>
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>apache.snapshots</id>
+      <url>https://repository.apache.org/snapshots/</url>
+    </repository>
+  </repositories>
   <!--bootstrap-end-comment-->
   <!--
   <dependencies>
