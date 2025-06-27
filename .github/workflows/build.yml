@@ -8,18 +8,25 @@ on:
 jobs:
   build:
     name: Build and analyze
-#    runs-on: ubuntu-latest
-    runs-on: windows-latest
-#    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+        java-version:
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 21.0.7
+      - name: Set up JDK ${{ matrix.java-version }}
         uses: actions/setup-java@v4
         with:
-          java-version: 21.0.7
-          distribution: 'temurin' # Use 'temurin' for specific minor versions
+          java-version: ${{ matrix.java-version }}
+          distribution: 'temurin'
       - name: Cache SonarQube packages
         uses: actions/cache@v4
         with:
@@ -35,5 +42,4 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#        run: mvn -B compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io
-        run: mvn -X compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.branch.name=macos-to-linux
+        run: mvn -B compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=all_java_versions
