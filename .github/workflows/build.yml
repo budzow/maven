@@ -41,5 +41,5 @@ jobs:
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_SCANNER_JAVA_OPTS: "-Xmx448m"
-        run: mvn -B compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_448m_2-1_threads_macos -Dsonar.java.analysis.maxThreads=2
+          SONAR_SCANNER_JAVA_OPTS: "-Xmx512m"
+        run: mvn -B compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_512m_2-1_threads_macos -Dsonar.java.analysis.maxThreads=2
