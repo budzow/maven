@@ -43,6 +43,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 #          SONAR_SCANNER_JAVA_OPTS: "-Xmx512m"
         run: 
+          RAND_MEM=$(( ( RANDOM % (6144 - 512 + 1 ) ) + 512 ))
+          echo "Random Xmx: $RAND_MEM"
+          export SONAR_SCANNER_JAVA_OPTS="-Xmx${RAND_MEM}m"
           mvn -B compile org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_512m-6144m-random_macos -Dsonar.java.analysis.maxThreads=1
         
         
