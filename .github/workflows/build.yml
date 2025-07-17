@@ -58,4 +58,4 @@ jobs:
 #      -Dsonar.organization=budzow-github \
 #      -Dsonar.host.url=https://sonarcloud.io \
 #      -Dsonar.branch.name=java_${RAND_MEM}m-random_macos \
-      -Dsonar.java.analysis.maxThreads=1        
+#      -Dsonar.java.analysis.maxThreads=1        
