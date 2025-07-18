@@ -42,7 +42,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_SCANNER_JAVA_OPTS: "-Xmx6144m"
-        run: #|
+        run: |
 #          RAND_MEM=$(( ( RANDOM % (6144 - 512 + 1 ) ) + 512 )#)
 #          echo "Random Xmx: $RAND_MEM"
 #          export SONAR_SCANNER_JAVA_OPTS="-Xmx${RAND_MEM}m"
