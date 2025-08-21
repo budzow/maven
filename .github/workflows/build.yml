@@ -17,9 +17,9 @@ jobs:
 #        os: [macos-latest]
         os: [ubuntu-latest]
         java-version:
-#          - 17        
+          - 17        
 #          - 21.0.4
-          - 21.0.7          
+#          - 21.0.7          
     steps:
       - uses: actions/checkout@v4
         with:
