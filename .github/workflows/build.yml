@@ -57,7 +57,7 @@ jobs:
           mvn install
           mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_512m-6144m-random_ubuntu -Dsonar.projectVersion=$DAY_OF_YEAR -Dsonar.buildString=$RAND_MEM -Dsonar.analysis.memory=$RAND_MEM
           echo "Random Xmx: $RAND_MEM"
-          curl "https://sonarcloud.io/api/issues/search?branch=java_512m-6144m-random_ubuntu&s=FILE_LINE&sinceLeakPeriod=true&ps=500&componentKeys=budzow_maven2&organization=budzow-github"
+          curl -s "https://sonarcloud.io/api/issues/search?branch=java_512m-6144m-random_ubuntu&s=FILE_LINE&sinceLeakPeriod=true&ps=500&componentKeys=budzow_maven2&organization=budzow-github"
         
 #- name: Build and analyze
 #  env:
