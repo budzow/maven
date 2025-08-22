@@ -48,7 +48,6 @@ jobs:
 #          SONAR_SCANNER_JAVA_OPTS: "-Xmx6144m"
         run: |
           RAND_MEM=$(( ( RANDOM % (6144 - 512 + 1 ) ) + 512 ))
-          echo "Random Xmx: $RAND_MEM"
           export SONAR_SCANNER_JAVA_OPTS="-Xmx${RAND_MEM}m"
 
           # Calculate day of year (1-366)
@@ -56,7 +55,8 @@ jobs:
           echo "Day of year: $DAY_OF_YEAR"
           
           mvn install
-          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_512m-6144m-random_ubuntu -Dsonar.projectVersion=$DAY_OF_YEAR
+          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_512m-6144m-random_ubuntu -Dsonar.projectVersion=$DAY_OF_YEAR -Dsonar.buildString=$RAND_MEM -Dsonar.analysis.memory=$RAND_MEM
+          echo "Random Xmx: $RAND_MEM"
           curl "https://sonarcloud.io/api/issues/search?branch=java_512m-6144m-random_ubuntu&s=FILE_LINE&sinceLeakPeriod=true&ps=500&componentKeys=budzow_maven2&organization=budzow-github"
         
 #- name: Build and analyze
