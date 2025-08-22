@@ -65,4 +65,4 @@ jobs:
             -Dsonar.analysis.memory=$RAND_MEM
           
           # USE api/project_analyses/create_event to create event OTHER with the number of allocated memory
-          curl "https://sonarcloud.io/api/issues/search?branch=java_512m-6144m-random_ubuntu&s=FILE_LINE&sinceLeakPeriod=true&ps=500&componentKeys=budzow_maven2&organization=budzow-github"
+          curl -s "https://sonarcloud.io/api/issues/search?branch=java_512m-6144m-random_ubuntu&s=FILE_LINE&sinceLeakPeriod=true&ps=500&componentKeys=budzow_maven2&organization=budzow-github"
