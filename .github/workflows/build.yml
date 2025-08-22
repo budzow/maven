@@ -51,7 +51,7 @@ jobs:
           echo "Random Xmx: $RAND_MEM"
           export SONAR_SCANNER_JAVA_OPTS="-Xmx${RAND_MEM}m"
           mvn install
-          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_512m-6144m-random_ubuntu
+          mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=budzow_maven2 -Dsonar.organization=budzow-github -Dsonar.host.url=https://sonarcloud.io -Dsonar.branch.name=java_512m-6144m-random_ubuntu -Dsonar.projectVersion=$DAY_OF_YEAR
         
         
 #- name: Build and analyze
